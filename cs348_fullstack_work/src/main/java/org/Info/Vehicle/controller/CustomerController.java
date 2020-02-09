@@ -29,8 +29,8 @@ public class CustomerController {
 
 
 	@RequestMapping(value = "/getCustomer/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
-	public void getCustomerById(@PathVariable int id) {
-		customerService.getCustomer(id);
+	public Customer getCustomerById(@PathVariable int id) {
+		return customerService.getCustomer(id);
 	}
 
 	@RequestMapping(value = "/addCustomer", method = RequestMethod.POST, headers = "Accept=application/json")
