@@ -1,89 +1,52 @@
-            var app = angular.module("SearchManagement", []);
-         
-            //Controller Part
-            app.controller("SearchController", function($scope, $http) {
-         
-               
-                $scope.customers = [];
-                $scope.customerForm = {
-                    id : -1,
-                    customerName : "",
-                    email : ""
-                };
-         
-                //Now load the data from server
-                _refreshCustomerData();
-         
-                //HTTP POST/PUT methods for add/edit customer 
-                // with the help of id, we are going to find out whether it is put or post operation
-                
-                $scope.submitCustomer = function() {
-         
-                    var method = "";
-                    var url = "";
-                    if ($scope.customerForm.id == -1) {
-                        //Id is absent in form data, it is create new customer operation
-                        method = "POST";
-                        url = '/addCustomer';
-                    } else {
-                        //Id is present in form data, it is edit customer operation
-                        method = "PUT";
-                        url = '/addCustomer';
-                    }
-         
-                    $http({
-                        method : method,
-                        url : url,
-                        data : angular.toJson($scope.customerForm),
-                        headers : {
-                            'Content-Type' : 'application/json'
-                        }
-                    }).then( _success, _error );
-                };
-         
-                //HTTP DELETE- delete customer by Id
-                $scope.deleteCustomer = function(customer) {
-                    $http({
-                        method : 'DELETE',
-                        url : '/deleteCustomer/' + customer.id
-                    }).then(_success, _error);
-                };
- 
-             // In case of edit, populate form fields and assign form.id with customer id
-                $scope.editCustomer = function(customer) {
-                  
-                    $scope.customerForm.customerName = customer.customerName;
-                    $scope.customerForm.email = customer.email;
-                    $scope.customerForm.id = customer.id;
-                };
-         
-                /* Private Methods */
-                //HTTP GET- get all customers collection
-                function _refreshCustomerData() {
-                    $http({
-                        method : 'GET',
-                        url : 'http://localhost:8080/getAllCustomers'
-                    }).then(function successCallback(response) {
-                        $scope.customers = response.data;
-                    }, function errorCallback(response) {
-                        console.log(response.statusText);
-                    });
-                }
-         
-                function _success(response) {
-                    _refreshCustomerData();
-                    _clearFormData()
-                }
-         
-                function _error(response) {
-                    console.log(response.statusText);
-                }
-         
-                //Clear the form
-                function _clearFormData() {
-                    $scope.customerForm.id = -1;
-                    $scope.customerForm.customerName = "";
-                    $scope.customerForm.email = "";
-                
-                };
-            });
+var app = angular.module("SearchManagement", []);
+
+//Controller Part
+app.controller("SearchController", function($scope, $http) {
+    $scope.modelList = ["All"];
+    $scope.yearList = ["All"];
+    $scope.makeList = ["All"];
+
+    $scope.searchCriteria = {};
+
+
+    $scope.selectMakeWarning = true;
+    //"/getAllFuelConsumptions"
+    /*$scope.showWarning = function() {
+        $(".select-make-warning").show(10,1);
+        $(".select-make-warning").fadeTo(10,0);
+    }*/
+
+    $scope.getModelList().then(function(response) {
+        $scope.modelList = response.modelList;
+    })
+
+    $scope.getModelList = function() {
+        $http({
+            method : "GET",
+            url : 'search/getAllModels',
+            headers : {
+                'Content-Type' : 'application/json'
+            }
+        });
+    }
+
+    $scope.getSearchCriteria = function() {
+        var e = document.getElementById("model");
+        $scope.selecedModel = e.options[e.selectedIndex].value;
+        e = document.getElementById("year");
+        $scope.selecedYear = e.options[e.selectedIndex].value;
+        e = document.getElementById("make");
+        $scope.selecedMake = e.options[e.selectedIndex].value;
+        e = document.getElementById("priceFrom");
+        $scope.selecedPrice[0] = e.options[e.selectedIndex].value;
+        e = document.getElementById("priceTo");
+        $scope.selecedPrice[1] = e.options[e.selectedIndex].value;
+
+        $scope.searchCriteria.model = $scope.selecedModel;
+        $scope.searchCriteria.year = $scope.selecedYear;
+        $scope.searchCriteria.make = $scope.selecedMake;
+        $scope.searchCriteria.priceFrom = $scope.selecedPrice[0];
+        $scope.searchCriteria.priceTo = $scope.selecedPrice[1];
+    }
+  
+});
