@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.arpit.java2blog</groupId>
-	<artifactId>SpringBootHibernateExample</artifactId>
+	<artifactId>VehicleInfoSystem1.0</artifactId>
  
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SpringBootHibernateExample Maven Webapp</name>
@@ -45,6 +45,6 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>SpringBootHibernateExample</finalName>
+		<finalName>VehicleInfoSystem1.0</finalName>
 	</build>
 </project>
