@@ -12,25 +12,25 @@ import javax.persistence.Table;
  * This is our model class and it corresponds to Manufactuter table in database
  */
 @Entity
-@Table(name="Manufactuter")
-public class Manufactuter{
+@Table(name="Manufacturer")
+public class Manufacturer{
 
 	@Id
-	@Column(name="manu_id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	int manu_id;
-
 	@Column(name="uid")
-	int uid; 
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	int uid;
 
-	public Manufactuter() {
+	@Column(name="pid")
+	int pid; 
+
+	public Manufacturer() {
 		super();
 	}
 
-	public Manufactuter(int manu_id, int uid) {
+	public Manufacturer(int uid, int pid) {
 		super();
-		this.manu_id=manu_id;
 		this.uid=uid;
+		this.pid=pid;
 	}
 	
 	public int getUid() {
@@ -40,11 +40,11 @@ public class Manufactuter{
 		this.uid = uid;
 	}
 
-	public int getAid() {
-		return manu_id;
+	public int getPid() {
+		return pid;
 	}
-	public void setAid(int manu_id) {
-		this.manu_id = manu_id;
+	public void setPid(int pid) {
+		this.pid = pid;
 	}
 	
 }

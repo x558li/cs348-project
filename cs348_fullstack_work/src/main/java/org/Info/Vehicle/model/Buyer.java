@@ -16,21 +16,21 @@ import javax.persistence.Table;
 public class Buyer{
 
 	@Id
-	@Column(name="bid")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	int bid;
-
 	@Column(name="uid")
-	int uid; 
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	int uid;
+
+	@Column(name="cid")
+	int cid; 
 
 	public Buyer() {
 		super();
 	}
 
-	public Buyer(int bid, int uid) {
+	public Buyer(int uid, int cid) {
 		super();
-		this.bid=bid;
 		this.uid=uid;
+		this.cid=cid;
 	}
 	
 	public int getUid() {
@@ -40,11 +40,11 @@ public class Buyer{
 		this.uid = uid;
 	}
 
-	public int getBid() {
-		return bid;
+	public int getCid() {
+		return cid;
 	}
-	public void setBid(int bid) {
-		this.bid = bid;
+	public void setCid(int cid) {
+		this.cid = cid;
 	}
 	
 }

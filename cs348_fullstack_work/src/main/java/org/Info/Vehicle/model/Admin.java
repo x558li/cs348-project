@@ -16,35 +16,25 @@ import javax.persistence.Table;
 public class Admin{
 
 	@Id
-	@Column(name="aid")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	int aid;
-
 	@Column(name="uid")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	int uid; 
 
 	public Admin() {
 		super();
 	}
 
-	public Admin(int aid, int uid) {
+	public Admin(int uid) {
 		super();
-		this.aid=aid;
 		this.uid=uid;
 	}
 	
 	public int getUid() {
 		return this.uid;
 	}
+	
 	public void setUid(int uid) {
 		this.uid = uid;
-	}
-
-	public int getAid() {
-		return aid;
-	}
-	public void setAid(int aid) {
-		this.aid = aid;
 	}
 	
 }
