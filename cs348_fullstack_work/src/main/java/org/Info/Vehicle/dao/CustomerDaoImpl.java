@@ -1,7 +1,8 @@
-package org.arpit.java2blog.dao;
+package org.Info.Vehicle.dao;
 
 import java.util.List;
-import org.arpit.java2blog.model.Customer;
+
+import org.Info.Vehicle.model.Customer;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,11 @@ public class CustomerDaoImpl implements CustomerDao{
 	}
 
 	public List<Customer> getAllCustomers() {
+		System.out.println("1");
 		Session session = this.sessionFactory.getCurrentSession();
+		System.out.println("2");
 		List<Customer>  customerList = session.createQuery("from Customer").list();
+		System.out.println("3");
 		return customerList;
 	}
 

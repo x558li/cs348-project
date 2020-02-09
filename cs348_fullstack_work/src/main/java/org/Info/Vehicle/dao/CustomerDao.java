@@ -1,8 +1,8 @@
-package org.arpit.java2blog.dao;
+package org.Info.Vehicle.dao;
 
 import java.util.List;
 
-import org.arpit.java2blog.model.Customer;
+import org.Info.Vehicle.model.Customer;
 
 public interface CustomerDao {
 	public List<Customer> getAllCustomers() ;

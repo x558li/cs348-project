@@ -1,5 +1,5 @@
 
-package org.arpit.java2blog.model;
+package org.Info.Vehicle.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

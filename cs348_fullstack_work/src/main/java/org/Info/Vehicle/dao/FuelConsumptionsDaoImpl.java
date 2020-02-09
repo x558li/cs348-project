@@ -1,7 +1,8 @@
-package org.arpit.java2blog.dao;
+package org.Info.Vehicle.dao;
 
 import java.util.List;
-import org.arpit.java2blog.model.FuelConsumptions;
+
+import org.Info.Vehicle.model.FuelConsumptions;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

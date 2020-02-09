@@ -1,11 +1,11 @@
-package org.arpit.java2blog.service;
+package org.Info.Vehicle.service;
 
 import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.arpit.java2blog.dao.CustomerDao;
-import org.arpit.java2blog.model.Customer;
+import org.Info.Vehicle.dao.CustomerDao;
+import org.Info.Vehicle.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

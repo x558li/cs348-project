@@ -1,4 +1,4 @@
-package org.arpit.java2blog;	
+package org.Info.Vehicle;	
 import java.util.Properties;
 
 import javax.sql.DataSource;

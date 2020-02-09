@@ -1,11 +1,11 @@
-package org.arpit.java2blog.service;
+package org.Info.Vehicle.service;
 
 import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.arpit.java2blog.dao.FuelConsumptionsDao;
-import org.arpit.java2blog.model.FuelConsumptions;
+import org.Info.Vehicle.dao.FuelConsumptionsDao;
+import org.Info.Vehicle.model.FuelConsumptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

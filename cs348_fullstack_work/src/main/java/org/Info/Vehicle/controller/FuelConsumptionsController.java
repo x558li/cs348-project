@@ -1,9 +1,9 @@
-package org.arpit.java2blog.controller;
+package org.Info.Vehicle.controller;
 
 import java.util.List;
 
-import org.arpit.java2blog.model.FuelConsumptions;
-import org.arpit.java2blog.service.FuelConsumptionsService;
+import org.Info.Vehicle.model.FuelConsumptions;
+import org.Info.Vehicle.service.FuelConsumptionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;

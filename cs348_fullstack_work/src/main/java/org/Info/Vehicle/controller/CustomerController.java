@@ -1,9 +1,9 @@
-package org.arpit.java2blog.controller;
+package org.Info.Vehicle.controller;
 
 import java.util.List;
 
-import org.arpit.java2blog.model.Customer;
-import org.arpit.java2blog.service.CustomerService;
+import org.Info.Vehicle.model.Customer;
+import org.Info.Vehicle.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +20,7 @@ public class CustomerController {
 
 	@RequestMapping(value = "/getAllCustomers", method = RequestMethod.GET, headers = "Accept=application/json")
 	public List<Customer> getAllCustomers(Model model) {
-
+		System.out.println("0");
 		List<Customer> listOfCustomers = customerService.getAllCustomers();
 		model.addAttribute("customer", new Customer());
 		model.addAttribute("listOfCustomers", listOfCustomers);
