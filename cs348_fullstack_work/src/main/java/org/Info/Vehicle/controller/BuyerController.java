@@ -26,10 +26,7 @@ public class BuyerController {
 		return listOfBuyer;
 	}
 
-	@RequestMapping(value = "/", method = RequestMethod.GET, headers = "Accept=application/json")
-	public String goToHomePage() {
-		return "redirect:/getAllBuyer";
-	}
+
 
 	@RequestMapping(value = "/getBuyer/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
 	public void getBuyerById(@PathVariable int id) {

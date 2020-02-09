@@ -26,11 +26,6 @@ public class ManufactuterController {
 		return listOfManufactuter;
 	}
 
-	@RequestMapping(value = "/", method = RequestMethod.GET, headers = "Accept=application/json")
-	public String goToHomePage() {
-		return "redirect:/getAllManufactuter";
-	}
-
 	@RequestMapping(value = "/getManufactuter/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
 	public void getManufactuterById(@PathVariable int id) {
 		manufactuterService.getManufactuter(id);

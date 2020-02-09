@@ -27,10 +27,6 @@ public class CustomerController {
 		return listOfCustomers;
 	}
 
-	@RequestMapping(value = "/", method = RequestMethod.GET, headers = "Accept=application/json")
-	public String goToHomePage() {
-		return "redirect:/getAllCustomers";
-	}
 
 	@RequestMapping(value = "/getCustomer/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
 	public void getCustomerById(@PathVariable int id) {

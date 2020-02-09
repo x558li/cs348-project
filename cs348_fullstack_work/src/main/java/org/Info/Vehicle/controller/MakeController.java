@@ -21,14 +21,9 @@ public class MakeController {
 	@RequestMapping(value = "/getAllMake", method = RequestMethod.GET, headers = "Accept=application/json")
 	public List<Make> getAllMake(Model model) {
 		List<Make> listOfMake = manufactuterService.getAllMake();
-		model.addAttribute("manufactuter", new Make());
+		model.addAttribute("make", new Make());
 		model.addAttribute("listOfMake", listOfMake);
 		return listOfMake;
-	}
-
-	@RequestMapping(value = "/", method = RequestMethod.GET, headers = "Accept=application/json")
-	public String goToHomePage() {
-		return "redirect:/getAllMake";
 	}
 
 	@RequestMapping(value = "/getMake/{id}", method = RequestMethod.GET, headers = "Accept=application/json")

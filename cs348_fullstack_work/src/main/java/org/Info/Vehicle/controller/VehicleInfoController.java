@@ -26,11 +26,6 @@ public class VehicleInfoController {
 		return listOfVehicleInfo;
 	}
 
-	@RequestMapping(value = "/VehicleInfoHomePage", method = RequestMethod.GET, headers = "Accept=application/json")
-	public String goToHomePage() {
-		return "redirect:/getAllVehicleInfo";
-	}
-
 	@RequestMapping(value = "/getVehicleInfo/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
 	public void getVehicleInfobyID(@PathVariable int id) {
 		vehicleInfoService.getVehicleInfo(id);

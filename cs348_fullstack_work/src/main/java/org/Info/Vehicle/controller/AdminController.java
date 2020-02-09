@@ -26,11 +26,6 @@ public class AdminController {
 		return listOfAdmin;
 	}
 
-	@RequestMapping(value = "/", method = RequestMethod.GET, headers = "Accept=application/json")
-	public String goToHomePage() {
-		return "redirect:/getAllAdmin";
-	}
-
 	@RequestMapping(value = "/getAdmin/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
 	public void getAdminById(@PathVariable int id) {
 		adminService.getAdmin(id);

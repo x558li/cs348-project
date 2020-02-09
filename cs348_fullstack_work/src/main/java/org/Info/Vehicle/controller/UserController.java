@@ -18,18 +18,14 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	@RequestMapping(value = "/getAllUsers", method = RequestMethod.GET, headers = "Accept=application/json")
-	public List<User> getAllUsers(Model model) {
-		List<User> listOfUsers = userService.getAllUsers();
+	@RequestMapping(value = "/getAllUser", method = RequestMethod.GET, headers = "Accept=application/json")
+	public List<User> getAllUser(Model model) {
+		List<User> listOfUsers = userService.getAllUser();
 		model.addAttribute("user", new User());
 		model.addAttribute("listOfUsers", listOfUsers);
 		return listOfUsers;
 	}
 
-	@RequestMapping(value = "/", method = RequestMethod.GET, headers = "Accept=application/json")
-	public String goToHomePage() {
-		return "redirect:/getAllUsers";
-	}
 
 	@RequestMapping(value = "/getUser/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
 	public void getUserById(@PathVariable int id) {

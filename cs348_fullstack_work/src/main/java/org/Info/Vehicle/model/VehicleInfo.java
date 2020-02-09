@@ -14,68 +14,72 @@ import javax.persistence.Table;
 public class VehicleInfo{
 
 	@Id
-	@Column(name="cid")
+	@Column(name="vid")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	int cid;
+	int vid;
 
-	@Column(name="Model_Year")
-	String model_year; 
+	@Column(name="Year")
+	String year; 
 
-	@Column(name="Make")
-	String make;
+	@Column(name="mid")
+	int mid; 
 
 	@Column(name="Model")
 	String model;
 	
 	@Column(name="Comb_Cons")
-	String comb_cons;
+	float comb_cons;
 	
 
 	
+	public VehicleInfo(int vid, String year, int mid, String model, float comb_cons) {
+		super();
+	}
 	public VehicleInfo() {
 		super();
-	}
-	public VehicleInfo(int cid,String model_year, String make, String model, String comb_cons) {
-		super();
-		this.cid=cid;
-		this.model_year=model_year;
-		this.make = make;
-		this.model = model;
+		this.vid = vid; 
+		this.year = year; 
+		this.mid = mid; 
+		this.model = model; 
 		this.comb_cons = comb_cons;
 	}
-	public int getCid() {
-		return this.cid;
+	public int getVid() {
+		return this.vid;
 	}
 	
-	public String getModel_year() {
-		return this.model_year;
+	public String getYear() {
+		return this.year;
 	}
-	
-	public String getMake() {
-		return this.make;
+
+	public int getMid() {
+		return this.mid;
 	}
-	
+
 	public String getModel() {
 		return this.model;
 	}
-	
-	public String getComb_cons() {
+
+	public float getComb_cons() {
 		return this.comb_cons;
 	}
-	
-	public void setModel_year(String model_year) {
-		this.model_year = model_year;
+
+ 	public void setVid(int vid) {
+		this.vid = vid;
 	}
 	
-	public void setMake(String make) {
-		this.make = make;
+	public void setYear(String year) {
+		this.year = year;
 	}
-	
+
+	public void setMid(int mid) {
+		this.mid = mid;
+	}
+
 	public void setModel(String model) {
 		this.model = model;
 	}
-	
-	public void setComb_cons(String comb_cons) {
+
+	public void setComb_cons(float comb_cons) {
 		this.comb_cons = comb_cons;
 	}
 	
