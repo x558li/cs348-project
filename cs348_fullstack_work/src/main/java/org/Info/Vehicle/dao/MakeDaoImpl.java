@@ -2,14 +2,14 @@ package org.Info.Vehicle.dao;
 
 import java.util.List;
 
-import org.Info.Vehicle.model.Customer;
+import org.Info.Vehicle.model.Make;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class CustomerDaoImpl implements CustomerDao{
+public class MakeDaoImpl implements MakeDao{
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -18,32 +18,32 @@ public class CustomerDaoImpl implements CustomerDao{
 		this.sessionFactory = sf;
 	}
 
-	public List<Customer> getAllCustomers() {
+	public List<Make> getAllMake() {
 		Session session = this.sessionFactory.getCurrentSession();
-		List<Customer>  customerList = session.createQuery("from Customer").list();
-		return customerList;
+		List<Make>  MakeList = session.createQuery("from Make").list();
+		return MakeList;
 	}
 
-	public Customer getCustomer(int id) {
+	public Make getMake(int id) {
 		Session session = this.sessionFactory.getCurrentSession();
-		Customer customer = (Customer) session.get(Customer.class, id);
-		return customer;
+		Make Make = (Make) session.get(Make.class, id);
+		return Make;
 	}
 
-	public Customer addCustomer(Customer customer) {
+	public Make addMake(Make Make) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.save(customer);
-		return customer;
+		session.save(Make);
+		return Make;
 	}
 
-	public void updateCustomer(Customer customer) {
+	public void updateMake(Make Make) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.update(customer);
+		session.update(Make);
 	}
 
-	public void deleteCustomer(int id) {
+	public void deleteMake(int id) {
 		Session session = this.sessionFactory.getCurrentSession();
-		Customer p = (Customer) session.load(Customer.class, new Integer(id));
+		Make p = (Make) session.load(Make.class, new Integer(id));
 		if (null != p) {
 			session.delete(p);
 		}

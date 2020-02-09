@@ -2,14 +2,14 @@ package org.Info.Vehicle.dao;
 
 import java.util.List;
 
-import org.Info.Vehicle.model.Customer;
+import org.Info.Vehicle.model.Admin;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class CustomerDaoImpl implements CustomerDao{
+public class AdminDaoImpl implements AdminDao{
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -18,32 +18,32 @@ public class CustomerDaoImpl implements CustomerDao{
 		this.sessionFactory = sf;
 	}
 
-	public List<Customer> getAllCustomers() {
+	public List<Admin> getAllAdmin() {
 		Session session = this.sessionFactory.getCurrentSession();
-		List<Customer>  customerList = session.createQuery("from Customer").list();
-		return customerList;
+		List<Admin>  AdminList = session.createQuery("from Admin").list();
+		return AdminList;
 	}
 
-	public Customer getCustomer(int id) {
+	public Admin getAdmin(int id) {
 		Session session = this.sessionFactory.getCurrentSession();
-		Customer customer = (Customer) session.get(Customer.class, id);
-		return customer;
+		Admin Admin = (Admin) session.get(Admin.class, id);
+		return Admin;
 	}
 
-	public Customer addCustomer(Customer customer) {
+	public Admin addAdmin(Admin Admin) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.save(customer);
-		return customer;
+		session.save(Admin);
+		return Admin;
 	}
 
-	public void updateCustomer(Customer customer) {
+	public void updateAdmin(Admin Admin) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.update(customer);
+		session.update(Admin);
 	}
 
-	public void deleteCustomer(int id) {
+	public void deleteAdmin(int id) {
 		Session session = this.sessionFactory.getCurrentSession();
-		Customer p = (Customer) session.load(Customer.class, new Integer(id));
+		Admin p = (Admin) session.load(Admin.class, new Integer(id));
 		if (null != p) {
 			session.delete(p);
 		}

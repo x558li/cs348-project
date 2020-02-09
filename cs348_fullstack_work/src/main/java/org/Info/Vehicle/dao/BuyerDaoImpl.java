@@ -2,14 +2,14 @@ package org.Info.Vehicle.dao;
 
 import java.util.List;
 
-import org.Info.Vehicle.model.Customer;
+import org.Info.Vehicle.model.Buyer;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class CustomerDaoImpl implements CustomerDao{
+public class BuyerDaoImpl implements BuyerDao{
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -18,32 +18,32 @@ public class CustomerDaoImpl implements CustomerDao{
 		this.sessionFactory = sf;
 	}
 
-	public List<Customer> getAllCustomers() {
+	public List<Buyer> getAllBuyer() {
 		Session session = this.sessionFactory.getCurrentSession();
-		List<Customer>  customerList = session.createQuery("from Customer").list();
-		return customerList;
+		List<Buyer>  BuyerList = session.createQuery("from Buyer").list();
+		return BuyerList;
 	}
 
-	public Customer getCustomer(int id) {
+	public Buyer getBuyer(int id) {
 		Session session = this.sessionFactory.getCurrentSession();
-		Customer customer = (Customer) session.get(Customer.class, id);
-		return customer;
+		Buyer Buyer = (Buyer) session.get(Buyer.class, id);
+		return Buyer;
 	}
 
-	public Customer addCustomer(Customer customer) {
+	public Buyer addBuyer(Buyer Buyer) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.save(customer);
-		return customer;
+		session.save(Buyer);
+		return Buyer;
 	}
 
-	public void updateCustomer(Customer customer) {
+	public void updateBuyer(Buyer Buyer) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.update(customer);
+		session.update(Buyer);
 	}
 
-	public void deleteCustomer(int id) {
+	public void deleteBuyer(int id) {
 		Session session = this.sessionFactory.getCurrentSession();
-		Customer p = (Customer) session.load(Customer.class, new Integer(id));
+		Buyer p = (Buyer) session.load(Buyer.class, new Integer(id));
 		if (null != p) {
 			session.delete(p);
 		}
