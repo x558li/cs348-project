@@ -10,8 +10,8 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="FUELCONSUMPTION2019")
-public class FuelConsumptions{
+@Table(name="VehicleInfo")
+public class VehicleInfo{
 
 	@Id
 	@Column(name="cid")
@@ -32,10 +32,10 @@ public class FuelConsumptions{
 	
 
 	
-	public FuelConsumptions() {
+	public VehicleInfo() {
 		super();
 	}
-	public FuelConsumptions(int cid,String model_year, String make, String model, String comb_cons) {
+	public VehicleInfo(int cid,String model_year, String make, String model, String comb_cons) {
 		super();
 		this.cid=cid;
 		this.model_year=model_year;
