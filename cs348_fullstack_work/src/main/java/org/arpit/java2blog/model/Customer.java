@@ -34,7 +34,9 @@ public class Customer{
 		this.customerName=customerName;
 		this.email=email;
 	}
+	
 	public String getCustomerName() {
+		System.out.println("The total pay is " + customerName);
 		return customerName;
 	}
 	public void setCustomerName(String customerName) {

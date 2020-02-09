@@ -19,7 +19,7 @@ public class FuelConsumptionsDaoImpl implements FuelConsumptionsDao{
 
 	public List<FuelConsumptions> getAllFuelConsumptions() {
 		Session session = this.sessionFactory.getCurrentSession();
-		List<FuelConsumptions>  fuelConsumptionsList = session.createQuery("from FUELCONSUMPTION2019").list();
+		List<FuelConsumptions>  fuelConsumptionsList = session.createQuery("from FuelConsumptions").list();
 		return fuelConsumptionsList;
 	}
 
