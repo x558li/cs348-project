@@ -9,7 +9,9 @@ public interface UserDao {
 
 	public User getUser(int id) ;
 	
-	public boolean getUserByUsername(String username);
+	public boolean checkUserExist(String username);
+	
+	public boolean checkUserValid(String username, String password);
 
 	public User addUser(User user);
 

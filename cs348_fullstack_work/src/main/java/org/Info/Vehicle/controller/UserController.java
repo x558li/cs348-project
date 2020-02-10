@@ -53,8 +53,14 @@ public class UserController {
 	@RequestMapping(value = "/checkUsernameExist/{username}", method = RequestMethod.GET, headers = "Accept=application/json")
 	@ResponseBody
 	public Boolean getUserByUsername(@PathVariable String username) {
-		System.out.println(userService.getUserByUsername(username));
-	    return userService.getUserByUsername(username);
+		System.out.println(userService.checkUserExist(username));
+	    return userService.checkUserExist(username);
+	}
+	
+	@RequestMapping(value = "/checkUserValid/{username}/{password}", method = RequestMethod.GET, headers = "Accept=application/json")
+	@ResponseBody
+	public Boolean checkUserValid(@PathVariable String username, @PathVariable String password) {
+	    return userService.checkUserValid(username, password);
 	}
 
 }

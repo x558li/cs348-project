@@ -27,8 +27,13 @@ public class UserService {
 	}
 
 	@Transactional
-	public boolean getUserByUsername(String username) {
-		return userDao.getUserByUsername(username);
+	public boolean checkUserExist(String username) {
+		return userDao.checkUserExist(username);
+	}
+	
+	@Transactional
+	public boolean checkUserValid(String username, String password) {
+		return userDao.checkUserValid(username, password);
 	}
 	
 	@Transactional

@@ -47,6 +47,5 @@ public class VehicleInfoController {
 	public void deleteVehicleInfo(@PathVariable("id") int id) {
 		vehicleInfoService.deleteVehicleInfo(id);
 
-
 	}	
 }
