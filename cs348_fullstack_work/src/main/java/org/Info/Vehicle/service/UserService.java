@@ -27,6 +27,11 @@ public class UserService {
 	}
 
 	@Transactional
+	public boolean getUserByUsername(String username) {
+		return userDao.getUserByUsername(username);
+	}
+	
+	@Transactional
 	public User addUser(User user) {
 		userDao.addUser(user);
 		return user;

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -30,7 +31,7 @@ public class VehicleInfoController {
 	public void getVehicleInfobyID(@PathVariable int id) {
 		vehicleInfoService.getVehicleInfo(id);
 	}
-
+	
 	@RequestMapping(value = "/addVehicleInfo", method = RequestMethod.POST, headers = "Accept=application/json")
 	public VehicleInfo addVehicleInfo(@RequestBody VehicleInfo vehicleInfo) {
 		return vehicleInfoService.addVehicleInfo(vehicleInfo);
