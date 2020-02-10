@@ -1,7 +1,36 @@
+/*var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+  $routeProvider
+  .when("/", {
+    templateUrl : "main.htm"
+  })
+  .when("/london", {
+    templateUrl : "london.htm",
+    controller : "londonCtrl"
+  })
+  .when("/paris", {
+    templateUrl : "paris.htm",
+    controller : "parisCtrl"
+  });
+});
+app.controller("londonCtrl", function ($scope) {
+  $scope.msg = "I love London";
+});
+app.controller("parisCtrl", function ($scope) {
+  $scope.msg = "I love Paris";
+});
+*/
+
 var app = angular.module("SearchManagement", []);
 
 //Controller Part
-app.controller("SearchController", function($scope, $http) {
+app/*.config(function($routeProvider) {
+    $routeProvider
+    .when("/vehicleInfoSystem/search", {
+        templateUrl: "search.html",
+        controller: "SearchController"
+    });
+})*/.controller("SearchController", function($scope, $http) {
     $scope.modelList = ["All"];
     $scope.yearList = ["All"];
     $scope.makeList = ["All"];
@@ -16,7 +45,9 @@ app.controller("SearchController", function($scope, $http) {
         $(".select-make-warning").fadeTo(10,0);
     }*/
 
-    $scope.getModelList().then(function(response) {
+    getMakeList();
+
+    /*$scope.getModelList().then(function(response) {
         $scope.modelList = response.modelList;
     })
 
@@ -27,6 +58,29 @@ app.controller("SearchController", function($scope, $http) {
             headers : {
                 'Content-Type' : 'application/json'
             }
+        }).then(function successCallback(response) {
+            $scope.customers = response[0];
+        }, function errorCallback(response) {
+            console.log("ERROR");
+        });
+    }*/
+
+    
+
+    function getMakeList() {
+        $http({
+            method : "GET",
+            url : '/getAllMake',
+            headers : {
+                'Content-Type' : 'application/json'
+            }
+        }).then(function successCallback(response) {
+            var rawMakes = response.data;
+            for (var i = 0; i < rawMakes.length; i++) {
+                $scope.makeList.push(rawMakes[i].make);
+            }
+        }, function errorCallback(response) {
+            console.log("ERROR: getMakeList");
         });
     }
 
