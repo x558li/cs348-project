@@ -1,8 +1,5 @@
-# cs348-project
-
-1. Clone the project from github: https://github.com/x558li/cs348-project.git
-
 Backend Setup:
+1. Clone the project from github: https://github.com/x558li/cs348-project.git
 2. Make sure Eclipse is installed on you computer
 3. install Sping Tools 4 by using Eclipse Marketplace
 4. import the project as a maven project
