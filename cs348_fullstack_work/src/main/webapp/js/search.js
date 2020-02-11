@@ -47,11 +47,9 @@ app/*.config(function($routeProvider) {
 
     getMakeList();
 
-    /*$scope.getModelList().then(function(response) {
-        $scope.modelList = response.modelList;
-    })
+    
 
-    $scope.getModelList = function() {
+    /*$scope.getModelList = function() {
         $http({
             method : "GET",
             url : 'search/getAllModels',

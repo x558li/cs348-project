@@ -8,14 +8,7 @@ app.controller("SignUpController", function($scope, $http) {
 	$scope.user = {};
 	$scope.roleType = "Buyer";
 
-	$scope.submitUser = function() {
-		//check if username is valid
-		$scope.checkUserExists($scope.user.username).then(function feedback(response) {
-			if (response.exists == true) { //user already exists
-				$scope.usernameWarning = true;
-			}
-		});
-
+	$scope.getUserInfo = function() {
 		//check passwords match
 		if ($scope.user.password !== $scope.confirmPassword) {
 			$scope.passwordWarning = true;
@@ -45,19 +38,28 @@ app.controller("SignUpController", function($scope, $http) {
 		}
 	}
 
-	$scope.checkUserExists = function(username) {
+	$scope.submitUser = function() {
+		checkUserExists($scope.user.username);
+	}
+
+
+	function checkUserExists(username) {
 		$http({
             method : "GET",
-            url : 'user/checkUserExists/username=' + username,
+            url : '/checkUsernameExist/' + username,
             headers : {
                 'Content-Type' : 'application/json'
             }
-        });/*.then(function successCallback(response) {
-		    console.log("User '" + username + "' Created Successfully.");
-	  	}, function errorCallback(response) {
-	     	$scope.usernameWarning = true;
-	     	console.log("User '" + username + "' is taken or invalid.");
-	  	}); */  
+        }).then(function successCallback(response) {
+            if (response.data == true) {
+            	$scope.wrongUserWarning = false;
+            	$scope.getUserInfo();
+            } else {
+            	$scope.wrongUserWarning = true;
+            }
+        }, function errorCallback(response) {
+            console.log("ERROR: logInUser");
+        });
 	}
 
 	$scope.submitUser_backend = function(user) {
@@ -79,7 +81,7 @@ app.controller("SignUpController", function($scope, $http) {
 		    console.log("New User Created Successfully.");
 	  	}, function errorCallback(response) {
 	     	console.log("Failed to Create New User.");
-	  	});   
+	  	});
     };
 
 		
