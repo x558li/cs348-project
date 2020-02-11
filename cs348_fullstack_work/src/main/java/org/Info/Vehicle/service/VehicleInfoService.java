@@ -42,4 +42,19 @@ public class VehicleInfoService {
 	public void deleteVehicleInfo(int id) {
 		vehicleInfoDao.deleteVehicleInfo(id);
 	}
+
+	@Transactional
+	public List<String> getAllUniqueModels() {
+		return vehicleInfoDao.getAllUniqueModels();
+	}
+
+	@Transactional
+	public List<Integer> getAllUniqueYears() {
+		return vehicleInfoDao.getAllUniqueYears();
+	}
+
+	@Transactional
+	public List<Float> getAllUniqueConsumptions() {
+		return vehicleInfoDao.getAllUniqueConsumptions();
+	}
 }

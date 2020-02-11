@@ -46,6 +46,20 @@ public class VehicleInfoController {
 	@RequestMapping(value = "/deleteVehicleInfo/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
 	public void deleteVehicleInfo(@PathVariable("id") int id) {
 		vehicleInfoService.deleteVehicleInfo(id);
-
+	}
+	
+	@RequestMapping(value = "/allUniqueModels", method = RequestMethod.GET, headers = "Accept=application/json")
+	public List<String> getAllUniqueModels() {
+		return vehicleInfoService.getAllUniqueModels();
+	}	
+	
+	@RequestMapping(value = "/allUniqueYears", method = RequestMethod.GET, headers = "Accept=application/json")
+	public List<Integer> getAllUniqueYears() {
+		return vehicleInfoService.getAllUniqueYears();
+	}	
+	
+	@RequestMapping(value = "/allUniqueConsumptions", method = RequestMethod.GET, headers = "Accept=application/json")
+	public List<Float> getAllUniqueConsumptions() {
+		return vehicleInfoService.getAllUniqueConsumptions();
 	}	
 }

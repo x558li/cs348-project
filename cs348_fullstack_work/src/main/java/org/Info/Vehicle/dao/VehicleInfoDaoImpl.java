@@ -48,4 +48,22 @@ public class VehicleInfoDaoImpl implements VehicleInfoDao{
 			session.delete(p);
 		}
 	} 
+	
+	public List<String> getAllUniqueModels() {
+		Session session = this.sessionFactory.getCurrentSession();
+		List<String>  modelList = session.createQuery("SELECT DISTINCT model from VehicleInfo").list();
+		return modelList;
+	}
+	
+	public List<Integer> getAllUniqueYears() {
+		Session session = this.sessionFactory.getCurrentSession();
+		List<Integer>  yearList = session.createQuery("SELECT DISTINCT Year from VehicleInfo").list();
+		return yearList;
+	}
+
+	public List<Float> getAllUniqueConsumptions() {
+		Session session = this.sessionFactory.getCurrentSession();
+		List<Float>  consumptionList = session.createQuery("SELECT DISTINCT comb_cons from VehicleInfo").list();
+		return consumptionList;
+	}
 }

@@ -14,4 +14,10 @@ public interface VehicleInfoDao {
 	public void updateVehicleInfo(VehicleInfo vehicleInfo) ;
 
 	public void deleteVehicleInfo(int cid) ;
+
+	public List<String> getAllUniqueModels();
+
+	public List<Integer> getAllUniqueYears();
+
+	public List<Float> getAllUniqueConsumptions();
 }
