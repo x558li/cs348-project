@@ -14,3 +14,9 @@ AND u.password = 'çs348'
 AND u.uid = b.uid
 AND b.cid = c.cid
 AND c.vid = v.vid;
+
+-- select all unique make_name from make table
+SELECT distinct make_name FROM Make; 
+
+-- select all unique  from make table
+SELECT distinct model FROM VehicleInfo; 
