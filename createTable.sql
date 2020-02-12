@@ -78,7 +78,9 @@ INSERT INTO Cart values (3, 3);
 
 create table Admin
 (	
-	uid int UNIQUE, 
+	uid int UNIQUE,
+	username varchar(16) UNIQUE NOT NULL, 
+	password varchar(16) NOT NULL,
 	foreign key (uid) REFERENCES User(uid)
 );
 
@@ -90,7 +92,9 @@ INSERT INTO  Admin values (4);
 create table Manufacturer
 (
 	uid int UNIQUE, 
-	pid int UNIQUE, 
+	pid int UNIQUE,
+	username varchar(16) UNIQUE NOT NULL, 
+	password varchar(16) NOT NULL,
 	foreign key (uid) REFERENCES User(uid), 
 	foreign key (pid) REFERENCES Produce(pid)
 );
@@ -102,7 +106,9 @@ INSERT INTO  Manufacturer values (7, 3);
 create table Buyer
 (	
 	uid int UNIQUE, 
-	cid int UNIQUE, 
+	cid int UNIQUE,
+	username varchar(16) UNIQUE NOT NULL, 
+	password varchar(16) NOT NULL,
 	foreign key (uid) REFERENCES User(uid),
 	foreign key (cid) REFERENCES Cart(cid)
 );
